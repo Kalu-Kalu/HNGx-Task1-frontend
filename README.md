@@ -1,2 +1,2 @@
-# HNGx-Tasks
-You would find the completion of my assigned tasks in this repository.
+# Frontend-Task1
+You would find the completion of my assigned task in this repository.
