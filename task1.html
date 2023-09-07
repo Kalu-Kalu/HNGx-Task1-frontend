@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Frontend Page</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Poppins',  sans-serif;
+}
+
+/* --- container --- */
+.container {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 40px 70px;
+    text-align: center;
+}
+
+/* --- Username --- */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007acc;
+}
+
+/* --- Display Picture --- */
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+    border: none;
+    background-color: #222;
+}
+
+/* --- CurrentDayOfTheWeek --- */
+p[data-testid="currentDayOfTheWeek"] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007acc;
+}
+
+/* --- CurrentUTCTime --- */
+p[data-testid="currentUTCTime"] {
+    font-size: 18px;
+    color: #007acc;
+}
+
+/* --- Track-path --- */
+p[data-testid="myTrack"] {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #007acc;
+    font-weight: bold;
+}
+
+/* GitHub URL styling */
+a[data-testid="githubURL"] {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #007acc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a[data-testid="githubURL"]:hover {
+    color: #004266;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 data-testid="slackUserName">Peekay</h1>
+        <img src="./display_pics.png"  alt="peekay" data-testid="slackDisplayImage">
+        <p data-testid="currentDayOfTheWeek">Monday</p>
+        <p data-testid="currentUTCTime"></p>
+        <p data-testid="myTrack">Frontend</p>
+        <a href="https://github.com/Kalu-Kalu/HNGx-Tasks/tree/main" target="_blank" data-testid="githubURL">GitHub Repository</a>
+    </div>
+     
+
+    <script>
+        const currentTime = new Date();
+        const  date = Date.now();
+        const currentDayOfWeek = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(currentTime);
+        const currentUTCTime = currentTime.getUTCMilliseconds();        
+        document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = currentDayOfWeek;
+        document.querySelector('[data-testid="currentUTCTime"]').textContent = `${currentUTCTime} ms`;
+    </script>
+</body>
+</html>
